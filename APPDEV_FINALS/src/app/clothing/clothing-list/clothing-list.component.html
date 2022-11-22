@@ -1,0 +1,40 @@
+<div class="container">
+
+    <br>
+	<h2>CLOTHING LIST:</h2>
+
+    <div class="col-12">
+        <button class="btn btn-info" type="submit">Add New</button>
+      </div>
+
+    <div class="container  mt-3">
+    
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Cloth Category</th>
+                <th scope="col">Cloth Brand</th>
+                <th scope="col">size</th>     
+                <th scope="col"></th>          
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let clothing of clothing$ | async" [class.selected]="clothing.id === SelectedId">
+                <th scope="row"><a [title]="clothing.category">{{clothing.category}}</a></th>
+                <td>{{clothing.brand}}</td>
+                <td>{{clothing.size}}</td>
+                <td>
+                      <button type="button" class="btn btn-outline-success actions me-1"
+                          [routerLink]="['/clothings', clothing.id]">
+                                  <i class="button button-info"></i>Details 
+                      </button>
+                      <button type="button" class="btn btn-outline-danger actions ms-1">
+                                  <i class="bi bi-warning-circle"></i>Delete 
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+  
+  </div>
